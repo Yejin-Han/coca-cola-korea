@@ -474,10 +474,6 @@ h2{
 	overflow: hidden;
 	transition: all 0.4s;
 }
-#brand>div:nth-of-type(2),
-#brand>div:nth-of-type(3){
-	display: none;
-}
 #brand>.content>figure>img{
 	height: auto;
 	position: absolute; right: 0;

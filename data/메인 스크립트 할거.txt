@@ -1,0 +1,15 @@
+script 적용부분
+
+
+5. tnb search 누르면 검색창 펼쳐짐
+
+6. 슬라이드 배너 왼쪽 오른쪽 누르면, pagination 누르면, 일정시간뒤에 fadein out으로 다음 이미지 등장
+(plug-in)
+
+ㅇ7. section2에 진입하면 일정 위치마다 타이포들이 슬라이드 해서 들어오는 애니메이션
+
+9. 브랜드 리스트 이름 클릭하면 위의 content area에 해당하는 내용이 뜨는 eyescroll?
+
+10. active인 브랜드 리스트에 active 원이 라인 따라 정가운데 뜨게 하는거
+(plug-in)
+

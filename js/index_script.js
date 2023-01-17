@@ -256,6 +256,12 @@ $(function(){
 		$('#brand>.cont3').nextUntil('.brands').hide();
 	});
 
+	//sect3 brand 클릭하면 내용 바뀌기
+	$('.brand_name>li').on('click',function(){
+		let brandName=$(this).children('a').attr('class');
+		/* switch문으로 class이름마다 html load해주기 $("#header").load("999_test2.html") */
+	});
+
 	//sect3 brand_btn mouseenter/leave 클래스추가
 	$('#brand>.brands>.innerbox>.brand_btn').on('mouseenter',function(){
 		$(this).addClass('on');
