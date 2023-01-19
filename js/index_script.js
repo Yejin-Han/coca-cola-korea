@@ -1,4 +1,4 @@
-//sect3 brand list iscroll
+/* //sect3 brand list iscroll
 var myScroll;
 function loaded(){
 	myScroll = new IScroll('.brand_wrap',{
@@ -8,7 +8,7 @@ function loaded(){
 	});
 }
 document.addEventListener('touchmove',function(e){e.preventDefault();},false);
-// document.getElementsByClassName('brand_wrap').addEventListener('touchmove',function(e){e.preventDefault();},false);
+// document.getElementsByClassName('brand_wrap').addEventListener('touchmove',function(e){e.preventDefault();},false); */
 
 $(function(){
 	//전역 변수 및 상수
@@ -240,27 +240,44 @@ $(function(){
 		$(this).removeClass('on');
 	});
 
-	//sect3 brand list 클릭 시 해당 내용으로 바꾸기 (일단 show hide로 기능설명만)
-	$('#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>.coca').on('click',function(){
-		$('#brand>.cont1').show();
-		$('#brand>.cont1').nextUntil('.brands').hide();
+	//sect3 brand_wrap scroll
+	let curXPos=0;
+	let curDown=false;
+	const brandWrap=$('.brand_wrap');
+	brandWrap.mousedown(function(e){
+		curDown=true;
+		curXPos=e.pageX;
 	});
-	$('#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>.sprite').on('click',function(){
-		$('#brand>.cont2').show();
-		$('#brand>.cont2').prevUntil('h2').hide();
-		$('#brand>.cont2').nextUntil('.brands').hide();
-	});
-	$('#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>.fanta').on('click',function(){
-		$('#brand>.cont3').show();
-		$('#brand>.cont3').prevUntil('h2').hide();
-		$('#brand>.cont3').nextUntil('.brands').hide();
+	brandWrap.mousemove(function(e){
+		console.log(curXPos, e.pageX);
+		console.log(curDown);
+		if(curDown){
+			if(curXPos>=e.pageX){
+				$(this).css('transform',`translateX(${-e.pageX})px`);
+			} else{
+				$(this).css('transform',`translateX(${e.pageX})px`);
+			}
+		}
+	})
+	brandWrap.mouseup(function(e){
+		curDown=false;
 	});
 
-	//sect3 brand 클릭하면 내용 바뀌기
-	$('.brand_name>li').on('click',function(){
-		let brandName=$(this).children('a').attr('class');
-		/* switch문으로 class이름마다 html load해주기 $("#header").load("999_test2.html") */
-	});
+	//sect3 brand 클릭하면 내용 바뀌기, active 따라다니기
+	const brandList=$('.brand_name>li');
+	const brandActive=$('.brands').find('.active');
+	brandActive.css('transition', 'none');
+	brandActive.css('left', `${parseInt(brandList.eq(0).children('a').width())/2}px`);
+	brandActive.css('transform', 'translateX(-50%)');
+	for(let i=0; i<brandList.length; i++){
+		brandList.eq(i).on('click',function(){
+			brandActive.css('transition', 'all 0.6s');
+			$('#brand>.content').load(`../data/cont${i+1}.html`);
+			$('#brand>.content').addClass('appear');
+			brandActive.css('left', `${$(this).children('a').offset().left+parseInt($(this).children('a').width())/2-brandList.eq(0).children('a').offset().left}px`);
+		});
+		$('#brand>.content').removeClass('appear');
+	}
 
 	//sect3 brand_btn mouseenter/leave 클래스추가
 	$('#brand>.brands>.innerbox>.brand_btn').on('mouseenter',function(){
