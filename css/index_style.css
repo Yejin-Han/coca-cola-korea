@@ -541,6 +541,7 @@ h2{
 	border-top: 1px solid #141414;
 }
 #brand>.brands>.innerbox{
+	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
 }
@@ -552,14 +553,14 @@ h2{
 	border: 1px solid #141414;
 	border-radius: 50%;
 	background: #fff;
-	position: absolute; left: 0px; top: -6px;
+	position: absolute; left: 0px; top: -6px; z-index: 100;
 	transition: all 0.6s;
 }
 #brand>.brands>.innerbox>.brand_wrap{
-	overflow: hidden;
 	width: 100%;
 	-ms-touch-action: none;
 	touch-action: none;
+	/* user-drag: none; */
 }
 #brand>.brands>.innerbox>.brand_wrap>.brand_name{
 	padding-top: 14px;
@@ -575,6 +576,8 @@ h2{
 	display: block;
 	font-weight: 300;
 	color: #fff;
+	user-drag: none;
+	user-select: none;
 }
 #brand>.brands>.innerbox>.brand_btn{
 	display:block;
