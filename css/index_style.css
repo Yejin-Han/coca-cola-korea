@@ -486,7 +486,7 @@ h2{
 #brand>h2{
 	color: #fff;
 }
-#brand>.content{
+#brand>.content_wrap>.content{
 	margin: 28px auto 40px;
 	position: relative;
 	background: #fff;
@@ -494,40 +494,40 @@ h2{
 	overflow: hidden;
 	transition: all 0.4s;
 }
-#brand>.content.appear>figure>img{
+#brand>.content_wrap>.content.appear>figure>img{
 	animation: appearImg 0.4s ease 0.6s 1 both;
 }
-#brand>.content.appear>figure>figcaption{
+#brand>.content_wrap>.content.appear>figure>figcaption{
 	animation: appear 0.4s ease 0s 1 both;
 }
-#brand>.content.appear>p{
+#brand>.content_wrap>.content.appear>p{
 	animation: appear 0.4s ease 0.2s 1 both;
 }
-#brand>.content.appear>.more_btn{
+#brand>.content_wrap>.content.appear>.more_btn{
 	animation: appear 0.4s ease 0.4s 1 both;
 }
-#brand>.content>figure>img{
+#brand>.content_wrap>.content>figure>img{
 	height: auto;
 	position: absolute; right: 0;
 	opacity:  1;
 	transform: translateY(calc(-50% + 20px));
 }
-#brand>.content>figure>figcaption{
+#brand>.content_wrap>.content>figure>figcaption{
 	letter-spacing: -1px;
 	opacity: 1;
 	transform: translateY(20px);
 }
-#brand>.content>p{
+#brand>.content_wrap>.content>p{
 	font-weight: 300;
 	letter-spacing: -1px;
 	line-height: 1.2em;
 	opacity: 1;
 	transform: translateY(20px);
 }
-#brand>.content>p>.br{
+#brand>.content_wrap>.content>p>.br{
 	display: block;
 }
-#brand>.content>.more_btn{
+#brand>.content_wrap>.content>.more_btn{
 	display: block;
 	text-align: center;
 	background: #e0051c;
@@ -536,50 +536,59 @@ h2{
 	opacity: 1;
 	transform: translateY(20px);
 }
-#brand>.brands{
+#brand>.content_wrap>.brands{
 	width: 100%;
-	border-top: 1px solid #141414;
-}
-#brand>.brands>.innerbox{
-	overflow: hidden;
-	margin: 0 auto;
 	position: relative;
 }
-#brand>.brands>.innerbox .active{
+#brand>.content_wrap>.brands::after{
 	display: block;
-	width: 9px;
-	height: 9px;
+	content: '';
+	position: absolute; left: 0; top: 10px; z-index: 1;
+	width: 100%; height: 1px;
+	background: rgba(255,255,255,0.6);
+}
+#brand>.content_wrap>.brands>.innerbox{
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+#brand>.content_wrap>.brands>.innerbox .active{
+	width: 8px;
+	height: 8px;
 	text-indent: -9999px;
-	border: 1px solid #141414;
+	border: 1px solid #fff;
 	border-radius: 50%;
 	background: #fff;
-	position: absolute; left: 0px; top: -6px; z-index: 100;
+	position: absolute; left: 0px; top: 6px; z-index: 1000;
 	transition: all 0.6s;
 }
-#brand>.brands>.innerbox>.brand_wrap{
+#brand>.content_wrap>.brands>.innerbox>.brand_wrap{
 	width: 100%;
 	-ms-touch-action: none;
 	touch-action: none;
+	transform: translateX(0px);
 	/* user-drag: none; */
 }
-#brand>.brands>.innerbox>.brand_wrap>.brand_name{
-	padding-top: 14px;
-	width: 1280px;
+#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name{
+	width: 100%; height: 100%;
+	display: flex;
 }
-#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
-	float: left;
+#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	/* float: left; */
+	padding: 36px 0 20px;
+	flex-shrink: 0;
 }
-#brand>.brands>.innerbox>.brand_wrap>.brand_name>li:last-child{
+#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li:last-child{
 	margin-right: 0;
 }
-#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 	display: block;
 	font-weight: 300;
 	color: #fff;
 	user-drag: none;
 	user-select: none;
 }
-#brand>.brands>.innerbox>.brand_btn{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 	display:block;
 	float: right;
 	text-align: right;
@@ -588,34 +597,34 @@ h2{
 	background-size: contain;
 	transition:all 0.15s;
 }
-#brand>.brands>.innerbox>.brand_btn>.arrow{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow{
 	position:relative;
 }
-#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 	height:1px;
 	background:#141414;
 	transform:scaleX(0);
 }
-#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 	width:1px;
 	position:absolute;
 	transform:rotate(-56deg) scaleY(0);
 	background:#141414;
 }
-#brand>.brands>.innerbox>.brand_btn.on>.arrow>.line{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn.on>.arrow>.line{
 	animation-name:more_line;
 	animation-duration:.15s;
 	animation-iteration-count:1;
 	animation-fill-mode:both;
 }
-#brand>.brands>.innerbox>.brand_btn.on>.arrow>.arrow_top{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn.on>.arrow>.arrow_top{
 	animation-name:more_arrow;
 	animation-delay:.15s;
 	animation-duration:.15s;
 	animation-iteration-count:1;
 	animation-fill-mode:both;
 }
-#brand>.brands>.innerbox>.brand_btn.on{
+#brand>.content_wrap>.brands>.innerbox>.brand_btn.on{
 	color:#141414;
 }
 /*==section3=종료====================================================================*/
@@ -955,23 +964,23 @@ h2{
 		padding-top: 80px;
 		font-size: 62px;
 	}
-	#brand>.content{
+	#brand>.content_wrap>.content{
 		width: 1280px;
 		height: 530px;
 	}
-	#brand>.content>figure>img{
+	#brand>.content_wrap>.content>figure>img{
 		width: 40%;
 		top: 50%;
 	}
-	#brand>.content>figure>figcaption{
+	#brand>.content_wrap>.content>figure>figcaption{
 		margin: 110px 0 0 80px;
 		font-size: 64px;
 	}
-	#brand>.content>p{
+	#brand>.content_wrap>.content>p{
 		margin: 30px 0 0 80px;
 		font-size: 20px;
 	}
-	#brand>.content>.more_btn{
+	#brand>.content_wrap>.content>.more_btn{
 		width: 180px;
 		height: 76px;
 		line-height: 76px;
@@ -979,27 +988,27 @@ h2{
 		font-size: 18px;
 		left: 80px; bottom: 100px;
 	}
-	#brand>.brands>.innerbox{
+	#brand>.content_wrap>.brands>.innerbox{
 		width: 1280px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
 		margin-right: 19px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 		font-size: 20px;
 	}
-	#brand>.brands>.innerbox>.brand_btn{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 		width:190px;
 		height: 32px;
 		padding-top: 32px;
 		margin: 60px 10px 60px 0;
 		font-size: 12px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 		width:190px;
 		margin-top:-1px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 		height: 54px;
 		right:0px; top:-53px;
 	}
@@ -1317,23 +1326,23 @@ h2{
 		padding-top: 60px;
 		font-size: 52px;
 	}
-	#brand>.content{
+	#brand>.content_wrap>.content{
 		width: 1024px;
 		height: 424px;
 	}
-	#brand>.content>figure>img{
+	#brand>.content_wrap>.content>figure>img{
 		width: 40%;
 		top: 50%;
 	}
-	#brand>.content>figure>figcaption{
+	#brand>.content_wrap>.content>figure>figcaption{
 		margin: 60px 0 0 80px;
 		font-size: 60px;
 	}
-	#brand>.content>p{
+	#brand>.content_wrap>.content>p{
 		margin: 20px 0 0 80px;
 		font-size: 18px;
 	}
-	#brand>.content>.more_btn{
+	#brand>.content_wrap>.content>.more_btn{
 		width: 180px;
 		height: 76px;
 		line-height: 76px;
@@ -1341,27 +1350,27 @@ h2{
 		font-size: 16px;
 		left:80px; bottom:80px;
 	}
-	#brand>.brands>.innerbox{
+	#brand>.content_wrap>.brands>.innerbox{
 		width: 1024px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
 		margin-right: 19px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 		font-size: 20px;
 	}
-	#brand>.brands>.innerbox>.brand_btn{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 		width:190px;
 		height: 32px;
 		padding-top: 32px;
 		margin: 60px 10px 40px 0;
 		font-size: 12px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 		width:190px;
 		margin-top:-1px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 		height: 54px;
 		right:0px; top:-53px;
 	}
@@ -1673,23 +1682,23 @@ h2{
 		padding-top: 60px;
 		font-size: 46px;
 	}
-	#brand>.content{
+	#brand>.content_wrap>.content{
 		width: 768px;
 		height: 318px;
 	}
-	#brand>.content>figure>img{
+	#brand>.content_wrap>.content>figure>img{
 		width: 40%;
 		top: 50%;
 	}
-	#brand>.content>figure>figcaption{
+	#brand>.content_wrap>.content>figure>figcaption{
 		margin: 40px 0 0 54px;
 		font-size: 48px;
 	}
-	#brand>.content>p{
+	#brand>.content_wrap>.content>p{
 		margin: 14px 0 0 54px;
 		font-size: 16px;
 	}
-	#brand>.content>.more_btn{
+	#brand>.content_wrap>.content>.more_btn{
 		width: 150px;
 		height: 58px;
 		line-height: 58px;
@@ -1697,27 +1706,27 @@ h2{
 		left:54px; bottom:60px;
 		font-size: 14px;
 	}
-	#brand>.brands>.innerbox{
+	#brand>.content_wrap>.brands>.innerbox{
 		width: 768px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
 		margin-right: 16px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 		font-size: 18px;
 	}
-	#brand>.brands>.innerbox>.brand_btn{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 		width:156px;
 		height: 28px;
 		padding-top: 28px;
 		margin: 55px 10px 40px 0;
 		font-size: 10px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 		width:156px;
 		margin-top:-2px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 		height: 44px;
 		right:0px; top:-43px;
 	}
@@ -2029,23 +2038,23 @@ h2{
 		padding-top: 60px;
 		font-size: 40px;
 	}
-	#brand>.content{
+	#brand>.content_wrap>.content{
 		width: 620px;
 		height: 257px;
 	}
-	#brand>.content>figure>img{
+	#brand>.content_wrap>.content>figure>img{
 		width: 40%;
 		top: 50%;
 	}
-	#brand>.content>figure>figcaption{
+	#brand>.content_wrap>.content>figure>figcaption{
 		margin: 30px 0 0 30px;
 		font-size: 40px;
 	}
-	#brand>.content>p{
+	#brand>.content_wrap>.content>p{
 		margin: 14px 0 0 30px;
 		font-size: 14px;
 	}
-	#brand>.content>.more_btn{
+	#brand>.content_wrap>.content>.more_btn{
 		width: 120px;
 		height: 46px;
 		line-height: 46px;
@@ -2053,27 +2062,27 @@ h2{
 		left:30px; bottom:40px;
 		font-size: 12px;
 	}
-	#brand>.brands>.innerbox{
+	#brand>.content_wrap>.brands>.innerbox{
 		width: 620px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
 		margin-right: 14px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 		font-size: 16px;
 	}
-	#brand>.brands>.innerbox>.brand_btn{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 		width:156px;
 		height: 28px;
 		padding-top: 28px;
 		margin: 55px 10px 40px 0;
 		font-size: 10px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 		width:156px;
 		margin-top:-2px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 		height: 44px;
 		right:0px; top:-43px;
 	}
@@ -2424,27 +2433,27 @@ h2{
 		padding-top: 60px;
 		font-size: 30px;
 	}
-	#brand>.content{
+	#brand>.content_wrap>.content{
 		width: 302px;
 		height: 400px;
 	}
-	#brand>.content.appear>figure>img{
+	#brand>.content_wrap>.content.appear>figure>img{
 		animation-name: appear;
 	}
-	#brand>.content>figure>img{
+	#brand>.content_wrap>.content>figure>img{
 		width: 60%;
 		bottom: 0;
 		transform: translateY(-20%);
 	}
-	#brand>.content>figure>figcaption{
+	#brand>.content_wrap>.content>figure>figcaption{
 		margin: 36px 0 0 20px;
 		font-size: 32px;
 	}
-	#brand>.content>p{
+	#brand>.content_wrap>.content>p{
 		margin: 22px 0 0 20px;
 		font-size: 12px;
 	}
-	#brand>.content>.more_btn{
+	#brand>.content_wrap>.content>.more_btn{
 		width: 80px;
 		height: 30px;
 		line-height: 30px;
@@ -2452,27 +2461,27 @@ h2{
 		left:20px; bottom:200px;
 		font-size: 10px;
 	}
-	#brand>.brands>.innerbox{
+	#brand>.content_wrap>.brands>.innerbox{
 		width: 302px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li{
 		margin-right: 10px;
 	}
-	#brand>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
+	#brand>.content_wrap>.brands>.innerbox>.brand_wrap>.brand_name>li>a{
 		font-size: 14px;
 	}
-	#brand>.brands>.innerbox>.brand_btn{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn{
 		width:122px;
 		height: 25px;
 		padding-top: 25px;
 		margin: 50px 10px 40px 0;
 		font-size: 10px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.line{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.line{
 		width:122px;
 		margin-top:-5px;
 	}
-	#brand>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
+	#brand>.content_wrap>.brands>.innerbox>.brand_btn>.arrow>.arrow_top{
 		height: 34px;
 		right:0px; top:-33px;
 	}
