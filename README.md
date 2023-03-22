@@ -9,7 +9,7 @@
 <br>
 <br>
 <h2>🗓️ 제작 기간</h2>
-> 2022. 09.20. ~ 2022. 11. 18.
+> 2022. 09. 20. ~ 2022. 11. 18.
 <h2>📸 완성 화면</h2>
 <img alt="PC 완성화면" src="/capture/sect1.jpg" align="center" />
 <table>
